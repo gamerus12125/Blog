@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import MainMenu from "../MainMenu/MainMenu";
 import SocialMenu from "../SocialMenu/SocialMenu";
 const Header = () => {
+  const [isNotDisplay, setDisplay] = useState({ display: "none" });
+  const [isDisplay, setNotDisplay] = useState({ display: "block" });
   return (
     <header>
       <nav className="header__nav">
@@ -12,13 +14,22 @@ const Header = () => {
           className="header__burger"
           type="button"
           aria-label="открыть меню"
+          style={isDisplay}
+          onClick={() => {
+            setNotDisplay({ display: "none" });
+            setDisplay({ display: "block" });
+          }}
         ></button>
-        <div className="main-menu">
+        <div className="main-menu" style={isNotDisplay}>
           <p className="main-menu__title">{">"}меню</p>
           <button
             className="main-menu__close"
             type="button"
             aria-label="закрыть меню"
+            onClick={() => {
+              setDisplay({ display: "none" });
+              setNotDisplay({ display: "block" });
+            }}
           ></button>
           <ul className="main-menu__list">
             <MainMenu text="_посты" />
