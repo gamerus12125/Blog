@@ -1,9 +1,12 @@
 import React from "react";
-const Footer = (props) => {
-  return (
-    <footer className="footer">
-      <p className="footer__text">{props.text}</p>
-    </footer>
-  );
+import styles from "../Footer/Footer.module.css";
+const Footer = () => {
+	return (
+		<footer className={styles.footer}>
+			<p className={styles.footer__text}>
+				&copy; _web.blog {new Date().getFullYear()}
+			</p>
+		</footer>
+	);
 };
 export default Footer;

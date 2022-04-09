@@ -1,0 +1,15 @@
+.MainMenu__item {
+  margin-bottom: 56px;
+  text-align: right;
+}
+
+.MainMenu__link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .MainMenu__item {
+    margin: 0;
+  }
+}

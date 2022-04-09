@@ -1,59 +1,56 @@
 import React, { useState } from "react";
-import MainMenu from "../MainMenu/MainMenu";
-import SocialMenu from "../SocialMenu/SocialMenu";
+import MainMenuItem from "../MainMenuItem";
+import SocialMenuItem from "../SocialMenuItem";
+import styles from "./Header.module.css";
+import logo from "../../images/logo.png";
+import cn from "classnames";
+import { MENU, SOCIAL_MENU } from "./store";
+
 const Header = () => {
-  const [isNotDisplay, setDisplay] = useState({ display: "none" });
-  const [isDisplay, setNotDisplay] = useState({ display: "block" });
+  const [isActive, setActive] = useState(false);
+
   return (
-    <header>
-      <nav className="header__nav">
-        <a className="header__logo" href="/">
-          <img src="/" alt="logo" width="126" height="23" />
+    <header className={styles.header}>
+      <nav className={styles.header__nav}>
+        <a className={styles.header__logo} href="/">
+          <img src={logo} alt="logo" width="126" height="23" />
         </a>
         <button
-          className="header__burger"
+          className={cn(styles.header__burger, {
+            [styles.header__burger__active]: isActive,
+          })}
           type="button"
           aria-label="открыть меню"
-          style={isDisplay}
-          onClick={() => {
-            setNotDisplay({ display: "none" });
-            setDisplay({ display: "block" });
-          }}
-        ></button>
-        <div className="main-menu" style={isNotDisplay}>
-          <p className="main-menu__title">{">"}меню</p>
+          onClick={() => setActive(true)}
+        />
+        <div
+          className={cn(styles.MainMenu, {
+            [styles.MainMenu__active]: isActive,
+          })}
+        >
+          <p className={styles.MainMenu__title}>&gt; меню</p>
           <button
-            className="main-menu__close"
+            className={styles.MainMenu__close}
             type="button"
             aria-label="закрыть меню"
-            onClick={() => {
-              setDisplay({ display: "none" });
-              setNotDisplay({ display: "block" });
-            }}
-          ></button>
-          <ul className="main-menu__list">
-            <MainMenu text="_посты" />
-            <MainMenu text="_категории" />
-            <MainMenu text="_полезное" />
-            <MainMenu text="_обо мне" />
+            onClick={() => setActive(false)}
+          />
+          <ul className={styles.MainMenu__list}>
+            {MENU.map(({ id, text }) => (
+              <MainMenuItem key={id} text={text} />
+            ))}
           </ul>
-          <ul className="social-menu">
-            <SocialMenu
-              className="social-menu__link social-menu__link--instagram"
-              aria="instagram"
-            />
-            <SocialMenu
-              className="social-menu__link social-menu__link--vk"
-              aria="vk"
-            />
-            <SocialMenu
-              className="social-menu__link social-menu__link--twitter"
-              aria="twitter"
-            />
-            <SocialMenu
-              className="social-menu__link social-menu__link--youtube"
-              aria="youtube"
-            />
+          <ul className={styles.SocialMenu}>
+            {SOCIAL_MENU.map(({ id, title, href, IconComponent }) => (
+              <SocialMenuItem
+                key={id}
+                className={styles.SocialMenu__link}
+                href={href}
+                aria={title}
+              >
+                <IconComponent className={styles.icon} />
+              </SocialMenuItem>
+            ))}
           </ul>
         </div>
       </nav>
