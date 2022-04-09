@@ -1,10 +1,11 @@
 .header {
-  width: 100vw;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   background-color: #fff;
   border-bottom: 5px solid #0500ff;
+  z-index: 1;
 }
 
 .header__nav {
@@ -28,8 +29,11 @@
   border: none;
   cursor: pointer;
 }
+.header__burger__active {
+  display: none;
+}
 .MainMenu {
-  display: none; /* grid; */
+  display: none;
   grid-template-rows: min-content 1fr min-content;
   position: absolute;
   padding: 38px;
@@ -40,7 +44,9 @@
   background-color: #0500ff;
   z-index: 9999;
 }
-
+.MainMenu__active {
+  display: grid;
+}
 .MainMenu__title {
   color: #fff;
   font-weight: 700;
@@ -97,7 +103,7 @@
 .SocialMenu__link__youtube {
   background-image: url("../../images/youtube.svg");
 }
-@media (min-width: 768px) {   
+@media (min-width: 768px) {
   .header {
     position: relative;
   }

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../SocialMenu/SocialMenu.module.css"
+import styles from "./SocialMenu.module.css";
 const SocialMenu = (props) => {
   return (
     <li className={styles.SocialMenu__item}>

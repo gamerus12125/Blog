@@ -1,37 +1,47 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
-  position: relative;
-  display: grid;
-  grid-template-rows: 1fr min-content;
-  margin: 0;
+	min-width: 375px;
+	font-family: "Roboto Mono", monospace;
+	position: relative;
+	margin: 0;
 }
 
 ol,
 ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 .visually-hidden {
-  position: absolute;
+	position: absolute;
 
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
 
-  border: 0;
+	border: 0;
 
-  clip: rect(0 0 0 0);
+	clip: rect(0 0 0 0);
+}
+
+#root {
+	height: 100%;
+	display: grid;
+	grid-template-rows: 1fr min-content;
 }

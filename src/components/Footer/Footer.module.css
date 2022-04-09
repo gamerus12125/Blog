@@ -1,11 +1,9 @@
 .footer__text {
-    width: 100vw;
-    height: 104px;
-    background-color: #0500FF;
-    color: white;
-    text-align: center;
-    margin-top: 64px;
-    margin-bottom: 0%;
-    padding-top: 40px;
-    font-size: 18px;
+	width: 100%;
+	padding: 25px 0 20px;
+	margin: 0;
+	background-color: #0500ff;
+	text-align: center;
+	font-size: 18px;
+	color: white;
 }

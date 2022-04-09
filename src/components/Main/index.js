@@ -1,3 +1,3 @@
-import Main from ".";
+import Main from "./Main";
 
 export default Main;
