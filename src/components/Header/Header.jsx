@@ -1,29 +1,14 @@
 import React, { useState } from "react";
-import MainMenu from "../MainMenu";
-import SocialMenu from "../SocialMenu";
+import MainMenuItem from "../MainMenuItem";
+import SocialMenuItem from "../SocialMenuItem";
 import styles from "./Header.module.css";
 import logo from "../../images/logo.png";
 import cn from "classnames";
-const Menu = [
-  {
-    id: 1,
-    text: "_посты",
-  },
-  {
-    id: 2,
-    text: "_категории",
-  },
-  {
-    id: 3,
-    text: "_полезное",
-  },
-  {
-    id: 4,
-    text: "_обо мне",
-  },
-];
+import { MENU, SOCIAL_MENU } from "./store";
+
 const Header = () => {
   const [isActive, setActive] = useState(false);
+
   return (
     <header className={styles.header}>
       <nav className={styles.header__nav}>
@@ -51,39 +36,21 @@ const Header = () => {
             onClick={() => setActive(false)}
           />
           <ul className={styles.MainMenu__list}>
-            {Menu.map(({ id, text }) => (
-              <MainMenu key={id} text={text} />
+            {MENU.map(({ id, text }) => (
+              <MainMenuItem key={id} text={text} />
             ))}
           </ul>
           <ul className={styles.SocialMenu}>
-            <SocialMenu
-              className={cn(
-                styles.SocialMenu__link,
-                styles.SocialMenu__link__instagram
-              )}
-              aria="instagram"
-            />
-            <SocialMenu
-              className={cn(
-                styles.SocialMenu__link,
-                styles.SocialMenu__link__vk
-              )}
-              aria="vk"
-            />
-            <SocialMenu
-              className={cn(
-                styles.SocialMenu__link,
-                styles.SocialMenu__link__twitter
-              )}
-              aria="twitter"
-            />
-            <SocialMenu
-              className={cn(
-                styles.SocialMenu__link,
-                styles.SocialMenu__link__youtube
-              )}
-              aria="youtube"
-            />
+            {SOCIAL_MENU.map(({ id, title, href, IconComponent }) => (
+              <SocialMenuItem
+                key={id}
+                className={styles.SocialMenu__link}
+                href={href}
+                aria={title}
+              >
+                <IconComponent className={styles.icon} />
+              </SocialMenuItem>
+            ))}
           </ul>
         </div>
       </nav>

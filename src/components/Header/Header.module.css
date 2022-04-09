@@ -1,3 +1,7 @@
+.icon {
+  fill: #fff;
+}
+
 .header {
   width: 100%;
   position: fixed;
@@ -87,23 +91,11 @@
   width: 24px;
   height: 24px;
 }
-
-.SocialMenu__link__instagram {
-  background-image: url("../../images/instagram.svg");
-}
-
-.SocialMenu__link__vk {
-  background-image: url("../../images/vk.svg");
-}
-
-.SocialMenu__link__twitter {
-  background-image: url("../../images/twitter.svg");
-}
-
-.SocialMenu__link__youtube {
-  background-image: url("../../images/youtube.svg");
-}
 @media (min-width: 768px) {
+  .icon {
+    fill: #0500ff;
+  }
+
   .header {
     position: relative;
   }
@@ -149,22 +141,6 @@
   }
   .SocialMenu {
     margin: 31px auto;
-  }
-
-  .SocialMenu__link__instagram {
-    background-image: url("../../images/instagram-blue.svg");
-  }
-
-  .SocialMenu__link__vk {
-    background-image: url("../../images/vk-blue.svg");
-  }
-
-  .SocialMenu__link__twitter {
-    background-image: url("../../images/twitter-blue.svg");
-  }
-
-  .SocialMenu__link__youtube {
-    background-image: url("../../images/youtube-blue.svg");
   }
 }
 @media (min-width: 1100px) {
