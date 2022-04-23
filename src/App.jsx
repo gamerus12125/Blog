@@ -1,20 +1,25 @@
 import React from "react";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
-import Posts from "./components/Posts";
-import Profile from "./components/Profile";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
+import HomePage from "./pages/HomePage/HomePage";
+import PostsPage from "./pages/PostsPage";
+import SectionPage from "./pages/SectionPage";
+import UsefulPage from "./pages/UsefulPage";
+import AboutMePage from "./pages/AboutMePage";
 import "./styles/main.css";
 const App = () => {
   return (
-    <>
-      <Header />
-      <Main title="web blog">
-        <Profile />
-        <Posts />
-      </Main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="posts" element={<PostsPage />} />
+          <Route path="sections" element={<SectionPage />} />
+          <Route path="useful" element={<UsefulPage />} />
+          <Route path="aboutMe" element={<AboutMePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 

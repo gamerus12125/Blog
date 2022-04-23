@@ -4,17 +4,17 @@ import SocialMenuItem from "../SocialMenuItem";
 import styles from "./Header.module.css";
 import logo from "../../images/logo.png";
 import cn from "classnames";
+import { Link } from "react-router-dom";
 import { MENU, SOCIAL_MENU } from "./store";
-
 const Header = () => {
   const [isActive, setActive] = useState(false);
 
   return (
     <header className={styles.header}>
       <nav className={styles.header__nav}>
-        <a className={styles.header__logo} href="/">
+        <Link className={styles.header__logo} to="/">
           <img src={logo} alt="logo" width="126" height="23" />
-        </a>
+        </Link>
         <button
           className={cn(styles.header__burger, {
             [styles.header__burger__active]: isActive,
@@ -36,8 +36,8 @@ const Header = () => {
             onClick={() => setActive(false)}
           />
           <ul className={styles.MainMenu__list}>
-            {MENU.map(({ id, text }) => (
-              <MainMenuItem key={id} text={text} />
+            {MENU.map(({ id, title, href }) => (
+              <MainMenuItem key={id} text={title} link={href} />
             ))}
           </ul>
           <ul className={styles.SocialMenu}>

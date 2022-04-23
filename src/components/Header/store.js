@@ -1,27 +1,31 @@
 import { InstagramIcon, VKIcon, YoutubeIcon, TwitterIcon } from "../Icons";
 
 export const MENU = [
-	{
-		id: 1,
-		text: "_посты",
-	},
-	{
-		id: 2,
-		text: "_категории",
-	},
-	{
-		id: 3,
-		text: "_полезное",
-	},
-	{
-		id: 4,
-		text: "_обо мне",
-	},
+  {
+    id: 1,
+    title: "_посты",
+    href: "/posts",
+  },
+  {
+    id: 2,
+    title: "_категории",
+    href: "/sections",
+  },
+  {
+    id: 3,
+    title: "_полезное",
+    href: "/useful",
+  },
+  {
+    id: 4,
+    title: "_обо мне",
+    href: "/aboutMe",
+  },
 ];
 
 export const SOCIAL_MENU = [
-	{ id: 1, title: "instagram", href: "/", IconComponent: InstagramIcon },
-	{ id: 2, title: "vk", href: "/", IconComponent: VKIcon },
-	{ id: 3, title: "twitter", href: "/", IconComponent: TwitterIcon },
-	{ id: 4, title: "youtube", href: "/", IconComponent: YoutubeIcon },
+  { id: 1, title: "instagram", href: "/", IconComponent: InstagramIcon },
+  { id: 2, title: "vk", href: "/", IconComponent: VKIcon },
+  { id: 3, title: "twitter", href: "/", IconComponent: TwitterIcon },
+  { id: 4, title: "youtube", href: "/", IconComponent: YoutubeIcon },
 ];
