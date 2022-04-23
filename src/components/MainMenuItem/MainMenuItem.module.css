@@ -8,6 +8,14 @@
   text-decoration: none;
   font-weight: 700;
 }
+.MainMenu__link__active {
+  color: #fff;
+  background-color: #0500ff;
+}
+.MainMenu__link:not([href]) {
+  color: #fff;
+  background-color: #0500ff;
+}
 @media (min-width: 768px) {
   .MainMenu__item {
     margin: 0;

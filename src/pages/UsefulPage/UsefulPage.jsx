@@ -1,5 +1,5 @@
 import React from "react";
-const usefulPage = () => {
+const UsefulPage = () => {
   return <h1>Полезное</h1>;
 };
-export default usefulPage;
+export default UsefulPage;
