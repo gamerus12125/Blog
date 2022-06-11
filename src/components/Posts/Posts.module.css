@@ -6,10 +6,11 @@
   margin-bottom: 30px;
   box-shadow: 10px 10px #0500ff;
 }
-.picture {
-  display: block;
-  width: fit-content;
-  margin: 0 auto;
+.posts__number__none {
+  display: none;
+}
+.posts__item__blue {
+  background-color: #0500ff;
 }
 .posts__image {
   width: 295px;
@@ -18,10 +19,21 @@
   margin-top: 18px;
   border: 5px solid #0500ff;
   box-shadow: 5px 5px #0500ff;
+  display: block;
+  width: fit-content;
+  margin: 26px auto;
+  margin-left: 32px;
+}
+.posts__image__white {
+  border: #fff;
+  box-shadow: 5px 5px#fff;
 }
 .posts__date {
   height: 16px;
   color: #0500ff;
+}
+.posts__date__white {
+  color: #fff;
 }
 .posts__number {
   display: none;
@@ -32,10 +44,8 @@
   padding-bottom: 23px;
   border-bottom: 5px solid #0500ff;
 }
-.posts__title {
-  color: #0500ff;
-  font-size: 32px;
-  text-align: center;
+.posts__heading__white {
+  border-bottom: 5px solid #fff;
 }
 .posts__text {
   font-weight: 400;
@@ -44,19 +54,16 @@
   line-height: 22px;
   margin-left: 22px;
 }
-.posts__more {
-  display: block;
-  font-size: 16px;
-  color: white;
-  text-decoration: none;
-  width: 280px;
-  height: 48px;
+.posts__text__white {
+  color: #fff;
+}
+.posts__title {
+  font-size: 14px;
+  font-weight: 700;
   text-align: center;
-  margin: auto;
-  padding-top: 14px;
-  margin-top: 64px;
-  margin-bottom: 80px;
-  background-color: #0500ff;
+}
+.posts__title__white {
+  color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -70,6 +77,10 @@
     color: #0500ff;
     font-size: 148px;
   }
+  .posts__number__white {
+    color: #fff;
+  }
+
   .picture {
     margin: 0px 0px 32px 26px;
   }
@@ -108,10 +119,11 @@
     display: flex;
     padding: 0px 20px 0px 20px;
   }
+  .posts__number__none {
+    display: none;
+  }
   .posts__image {
     margin-top: 26px;
-    border: 5px solid #0500ff;
-    box-shadow: 5px 5px #0500ff;
   }
   .posts__content {
     font-size: 12px;

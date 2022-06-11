@@ -60,7 +60,7 @@ module.exports = {
   devtool: "inline-source-map",
   devServer: {
     historyApiFallback: true,
-    port: 8080,
+    port: 9080,
     hot: true,
     open: true,
   },

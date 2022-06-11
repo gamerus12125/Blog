@@ -1,42 +1,76 @@
 import React from "react";
 import styles from "./Posts.module.css";
-import { POSTS } from "./store";
-const Posts = () => {
-	return (
-		<section className={styles.posts}>
-			<h2 className={styles.posts__title}>_новые посты</h2>
-			<ul className={styles.posts__list}>
-				{POSTS.map(
-					({ id, title, content, date, image, number, imageMob, alt }) => (
-						<li key={id} className={styles.posts__item}>
-							<div className={styles.posts__heading}>
-								<h3>{title}</h3>
-								<time className={styles.posts__date} dateTime={date}>
-									{date.toDateString()}
-								</time>
-							</div>
-							<div className={styles.posts__content}>
-								<picture className={styles.picture}>
-									<source media="(min-width: 768px)" srcSet={image} />
-									<img
-										className={styles.posts__image}
-										src={imageMob}
-										alt={alt}
-										width="115"
-										height="115"
-									/>
-								</picture>
-								<p className={styles.posts__text}>{content}</p>
-								<span className={styles.posts__number}>{number} </span>
-							</div>
-						</li>
-					)
-				)}
-			</ul>
-			<a className={styles.posts__more} href="/">
-				остальные...
-			</a>
-		</section>
-	);
+import Image from "../Image";
+import { marked } from "marked";
+import cn from "classnames";
+const Posts = ({ posts, isMarkedFirstPost, hasNumber }) => {
+  if (!posts && !posts?.length) return <p>No posts</p>;
+  const formatDate = (string) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(string).toLocaleDateString([], options);
+  };
+  return (
+    <section className={styles.posts}>
+      <ul className={styles.posts__list}>
+        {posts.map(
+          ({ id, title, epigraph, date, desktopImage, mobileImage }) => (
+            <li
+              key={id}
+              className={cn(styles.posts__item, {
+                [styles.posts__item__blue]: isMarkedFirstPost && id === 1,
+              })}
+            >
+              <div
+                className={cn(styles.posts__heading, {
+                  [styles.posts__heading__white]: isMarkedFirstPost && id === 1,
+                })}
+              >
+                <h3
+                  className={cn(styles.posts__title, {
+                    [styles.posts__title__white]: isMarkedFirstPost && id === 1,
+                  })}
+                >
+                  {title}
+                </h3>
+                <time
+                  className={cn(styles.posts__date, {
+                    [styles.posts__date__white]: isMarkedFirstPost && id === 1,
+                  })}
+                  dateTime={date}
+                >
+                  {formatDate(date)}
+                </time>
+              </div>
+              <div className={styles.posts__content}>
+                <Image
+                  className={cn(styles.posts__image, {
+                    [styles.posts__image__white]: isMarkedFirstPost && id === 1,
+                  })}
+                  alt={title}
+                  desktopImage={desktopImage}
+                  mobileImage={mobileImage}
+                />
+                <p
+                  className={cn(styles.posts__text, {
+                    [styles.posts__text__white]: isMarkedFirstPost && id === 1,
+                  })}
+                  dangerouslySetInnerHTML={{ __html: marked.parse(epigraph) }}
+                ></p>
+                <span
+                  className={cn(styles.posts__number, {
+                    [styles.posts__number__white]:
+                      isMarkedFirstPost && id === 1,
+                    [styles.posts__number__none]: hasNumber,
+                  })}
+                >
+                  {id}{" "}
+                </span>
+              </div>
+            </li>
+          )
+        )}
+      </ul>
+    </section>
+  );
 };
 export default Posts;

@@ -9,12 +9,9 @@
   font-weight: 700;
 }
 .MainMenu__link__active {
-  color: #fff;
-  background-color: #0500ff;
-}
-.MainMenu__link:not([href]) {
-  color: #fff;
-  background-color: #0500ff;
+  padding: 10px 14px;
+  color: #0500ff;
+  background-color: #fff;
 }
 @media (min-width: 768px) {
   .MainMenu__item {

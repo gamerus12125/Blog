@@ -23,6 +23,7 @@
   text-decoration: none;
 }
 
+
 .header__burger {
   padding: 0;
   background-image: url("../../images/burger.svg");
@@ -130,7 +131,7 @@
   }
 
   .MainMenu__list {
-    width: 475px;
+    width: 537px;
     margin: 0 auto;
     padding: 10px 20px;
     background-color: #0500ff;
